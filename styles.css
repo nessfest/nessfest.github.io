@@ -70,7 +70,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-height) + 22px);
 }
 
@@ -295,11 +294,6 @@ a {
   text-transform: uppercase;
 }
 
-.hero-kicker {
-  margin-bottom: 25px;
-  letter-spacing: 0.22em;
-}
-
 .hero h1 {
   max-width: 920px;
   margin: 0;
@@ -309,6 +303,11 @@ a {
   letter-spacing: -0.025em;
   line-height: 1.13;
   text-wrap: balance;
+}
+
+.hero-short-name {
+  color: var(--scarlet);
+  white-space: nowrap;
 }
 
 .hero-meta {
@@ -384,33 +383,6 @@ a {
 .button-secondary:hover {
   border-color: var(--scarlet);
   color: var(--scarlet);
-}
-
-.topic-line {
-  width: min(calc(100% - 72px), var(--max-width));
-  margin: 0 auto;
-  padding: 18px 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px 26px;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  color: var(--muted);
-  font-family: var(--serif);
-  font-size: 0.79rem;
-  line-height: 1.6;
-}
-
-.topic-line span:not(:last-child)::after {
-  margin-left: 26px;
-  color: #999999;
-  content: "·";
-}
-
-.topic-line b {
-  color: var(--scarlet);
-  font-family: var(--sans);
-  font-weight: 600;
 }
 
 .section {
@@ -1000,7 +972,6 @@ figcaption {
 
   .header-inner,
   .hero,
-  .topic-line,
   .section,
   .footer-main,
   .footer-meta {
@@ -1111,7 +1082,6 @@ figcaption {
 @media (max-width: 680px) {
   .header-inner,
   .hero,
-  .topic-line,
   .section,
   .footer-main,
   .footer-meta {
@@ -1162,24 +1132,6 @@ figcaption {
 
   .button {
     flex: 1 1 145px;
-  }
-
-  .topic-line {
-    padding: 15px 0;
-    display: block;
-    column-count: 2;
-    column-gap: 24px;
-    font-size: 0.72rem;
-  }
-
-  .topic-line span {
-    margin-bottom: 4px;
-    display: block;
-    break-inside: avoid;
-  }
-
-  .topic-line span:not(:last-child)::after {
-    display: none;
   }
 
   .section {
