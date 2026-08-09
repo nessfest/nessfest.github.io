@@ -307,8 +307,12 @@ a {
 }
 
 .hero-short-name {
-  color: var(--scarlet);
+  color: inherit;
   white-space: nowrap;
+}
+
+.hero-acrostic-letter {
+  color: var(--scarlet);
 }
 
 .hero-meta {
