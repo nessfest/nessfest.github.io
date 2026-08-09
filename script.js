@@ -49,6 +49,28 @@
   window.addEventListener("scroll", setHeaderState, { passive: true });
   setHeaderState();
 
+  const alignHashTarget = () => {
+    if (!window.location.hash || window.location.hash === "#top") return;
+
+    let target;
+    try {
+      target = document.querySelector(window.location.hash);
+    } catch {
+      return;
+    }
+
+    target?.scrollIntoView({ block: "start", behavior: "auto" });
+  };
+
+  const scheduleHashAlignment = () => {
+    window.requestAnimationFrame(() => window.requestAnimationFrame(alignHashTarget));
+  };
+
+  window.addEventListener("load", scheduleHashAlignment, { once: true });
+  window.addEventListener("pageshow", scheduleHashAlignment);
+  window.addEventListener("hashchange", scheduleHashAlignment);
+  document.fonts?.ready.then(scheduleHashAlignment);
+
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const revealElements = document.querySelectorAll("[data-reveal]");
 

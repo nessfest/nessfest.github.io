@@ -224,17 +224,18 @@ a {
 
 .hero {
   width: min(calc(100% - 72px), var(--max-width));
-  min-height: min(710px, calc(100svh - var(--header-height)));
+  min-height: auto;
   margin: 0 auto;
-  padding: clamp(74px, 10vh, 112px) 0 80px;
+  padding: clamp(74px, 8vh, 96px) 0 clamp(44px, 5vh, 56px);
   display: grid;
   grid-template-columns: 1px minmax(0, 900px);
-  align-content: center;
+  align-content: start;
   gap: clamp(25px, 3vw, 38px);
 }
 
 .hero-rule {
-  min-height: 420px;
+  min-height: 0;
+  align-self: stretch;
   background: var(--scarlet);
   transform: scaleY(0);
   transform-origin: top;
@@ -399,6 +400,10 @@ a {
   border-top: 1px solid var(--rule);
 }
 
+.hero + .section {
+  padding-top: 56px;
+}
+
 .section-label h2 {
   margin: 0;
   font-family: var(--serif);
@@ -539,6 +544,25 @@ figcaption {
 
 .honoree-profile sup {
   font-size: 0.64em;
+}
+
+.overview-summary {
+  margin-top: 64px;
+  padding-top: 52px;
+  border-top: 1px solid var(--rule);
+}
+
+.overview-summary-heading {
+  margin-bottom: 28px;
+}
+
+.overview-summary-heading h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.65rem, 3vw, 2.15rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
 }
 
 .inline-links {
@@ -1090,13 +1114,13 @@ figcaption {
 
   .hero {
     min-height: auto;
-    padding: 71px 0 62px;
+    padding: 71px 0 48px;
     grid-template-columns: 1px minmax(0, 1fr);
     gap: 20px;
   }
 
   .hero-rule {
-    min-height: 100%;
+    min-height: 0;
   }
 
   .hero h1 {
@@ -1139,6 +1163,10 @@ figcaption {
     gap: 30px;
   }
 
+  .hero + .section {
+    padding-top: 52px;
+  }
+
   .section + .section {
     margin-top: 70px;
   }
@@ -1163,6 +1191,11 @@ figcaption {
   .honoree-profile {
     margin-top: 39px;
     padding-top: 30px;
+  }
+
+  .overview-summary {
+    margin-top: 50px;
+    padding-top: 40px;
   }
 
   .moments-list li {

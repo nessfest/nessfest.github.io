@@ -17,6 +17,8 @@
     <meta property="og:image" content="assets/images/ness-shroff.webp" />
     <title>NessFest 2026 — The Ohio State University</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="assets/fonts/source-serif-4-400.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="assets/fonts/ibm-plex-sans-400.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="stylesheet" href="styles.css" />
     <script defer src="script.js"></script>
   </head>
@@ -31,7 +33,6 @@
 
         <nav class="desktop-nav" aria-label="Primary navigation">
           <a href="#about">Overview</a>
-          <a href="#honoree">Honoree</a>
           <a href="#program">Program</a>
           <a href="#speakers">Speakers</a>
           <a href="#logistics">Plan your visit</a>
@@ -52,7 +53,6 @@
 
       <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation" data-mobile-nav hidden>
         <a href="#about">Overview</a>
-        <a href="#honoree">Honoree</a>
         <a href="#program">Program</a>
         <a href="#speakers">Speakers</a>
         <a href="#logistics">Plan your visit</a>
@@ -84,39 +84,8 @@
         </div>
       </section>
 
-      <section class="section" id="about" aria-labelledby="about-heading" data-reveal>
-        <div class="section-label">
-          <p class="eyebrow">Workshop overview</p>
-          <h2 id="about-heading">NessFest 2026</h2>
-        </div>
-
-        <div class="section-body overview-body">
-          <p class="lead">
-            NessFest is a one-day academic workshop bringing together colleagues, collaborators, students,
-            alumni, and friends of Professor Ness B. Shroff for talks and conversations across the fields that
-            have shaped his research community.
-          </p>
-          <p class="body-copy">
-            The workshop celebrates rigorous ideas, lasting collaborations, generous mentorship, and the
-            people connected through them. It is being held in Professor Shroff’s honor on the occasion of his
-            60th birthday, while remaining first and foremost an academic gathering.
-          </p>
-
-          <dl class="event-facts" aria-label="Event at a glance">
-            <div>
-              <dt>Date</dt>
-              <dd>Friday, November 13</dd>
-            </div>
-            <div>
-              <dt>Place</dt>
-              <dd>EAIC · Room 130</dd>
-            </div>
-          </dl>
-        </div>
-      </section>
-
-      <section class="section" id="honoree" aria-labelledby="honoree-heading" data-reveal>
-        <div class="section-label">
+      <section class="section overview-honoree-section" id="about" aria-labelledby="honoree-heading" data-reveal>
+        <div class="section-label" id="honoree">
           <p class="eyebrow">The honoree</p>
           <h2 id="honoree-heading">Ness B. Shroff</h2>
         </div>
@@ -156,6 +125,35 @@
                 AI-EDGE Institute <span aria-hidden="true">↗</span>
               </a>
             </div>
+          </div>
+
+          <div class="overview-summary" aria-labelledby="about-heading">
+            <div class="overview-summary-heading">
+              <p class="eyebrow">Workshop overview</p>
+              <h3 id="about-heading">NessFest 2026</h3>
+            </div>
+
+            <p class="lead">
+              NessFest is a one-day academic workshop bringing together colleagues, collaborators, students,
+              alumni, and friends of Professor Ness B. Shroff for talks and conversations across the fields that
+              have shaped his research community.
+            </p>
+            <p class="body-copy">
+              The workshop celebrates rigorous ideas, lasting collaborations, generous mentorship, and the
+              people connected through them. It is being held in Professor Shroff’s honor on the occasion of his
+              60th birthday, while remaining first and foremost an academic gathering.
+            </p>
+
+            <dl class="event-facts" aria-label="Event at a glance">
+              <div>
+                <dt>Date</dt>
+                <dd>Friday, November 13</dd>
+              </div>
+              <div>
+                <dt>Place</dt>
+                <dd>EAIC · Room 130</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </section>
@@ -444,7 +442,7 @@
             <img src="assets/logos/ohio-state.png" width="448" height="67" alt="The Ohio State University" />
           </a>
           <a href="https://aiedge.osu.edu/homepage" target="_blank" rel="noreferrer">
-            <img src="assets/logos/ai-edge.png" width="900" height="232" alt="AI-EDGE Institute" />
+            <img src="assets/logos/ai-edge.png?v=transparent" width="620" height="160" alt="AI-EDGE Institute" />
           </a>
         </div>
       </div>
