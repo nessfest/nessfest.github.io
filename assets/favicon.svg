@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="NessFest monogram">
+  <rect width="64" height="64" rx="4" fill="#ffffff"/>
+  <path d="M15 12v40" stroke="#bb0000" stroke-width="3"/>
+  <path d="M25 47V18h4l16 22V18h5v29h-4L30 25v22z" fill="#171717"/>
+</svg>
