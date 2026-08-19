@@ -1145,7 +1145,8 @@ figcaption {
   }
 
   .hero-meta span {
-    display: none;
+    display: inline;
+    margin: 0 0.25em;
   }
 
   .hero-honoree {
