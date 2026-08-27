@@ -1,4 +1,6 @@
 (() => {
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+
   const header = document.querySelector("[data-header]");
   const menuButton = document.querySelector("[data-menu-button]");
   const menuLabel = menuButton?.querySelector(".menu-label");
@@ -64,6 +66,7 @@
 
   const scheduleHashAlignment = () => {
     window.requestAnimationFrame(() => window.requestAnimationFrame(alignHashTarget));
+    window.setTimeout(alignHashTarget, 650);
   };
 
   window.addEventListener("load", scheduleHashAlignment, { once: true });
