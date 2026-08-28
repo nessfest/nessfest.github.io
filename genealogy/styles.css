@@ -1,0 +1,963 @@
+.genealogy-page {
+  --genealogy-max: 1120px;
+  overflow-x: clip;
+}
+
+.genealogy-page .site-header {
+  background: rgba(255, 255, 255, 0.97);
+}
+
+.genealogy-hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.genealogy-hero::after {
+  position: absolute;
+  right: -18vw;
+  bottom: -32vw;
+  width: 68vw;
+  height: 68vw;
+  border: 1px solid rgba(187, 0, 0, 0.08);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.genealogy-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - 72px), var(--genealogy-max));
+  min-height: min(720px, calc(100svh - var(--header-height)));
+  margin: 0 auto;
+  padding: clamp(64px, 8vh, 88px) 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(400px, 0.95fr);
+  gap: clamp(50px, 7vw, 94px);
+  align-items: center;
+}
+
+.genealogy-hero-copy {
+  min-width: 0;
+}
+
+.genealogy-hero-copy > * {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: genealogy-hero-in 650ms ease forwards;
+}
+
+.genealogy-hero-copy > :nth-child(1) {
+  animation-delay: 140ms;
+}
+
+.genealogy-hero-copy > :nth-child(2) {
+  animation-delay: 220ms;
+}
+
+.genealogy-hero-copy > :nth-child(3) {
+  animation-delay: 310ms;
+}
+
+.genealogy-hero-copy > :nth-child(4) {
+  animation-delay: 400ms;
+}
+
+.genealogy-hero-copy > :nth-child(5) {
+  animation-delay: 480ms;
+}
+
+@keyframes genealogy-hero-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.genealogy-hero h1 {
+  max-width: 660px;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(3rem, 5.35vw, 4.75rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.99;
+  text-wrap: balance;
+}
+
+.genealogy-hero h1 em {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.genealogy-hero-intro {
+  max-width: 600px;
+  margin: 28px 0 0;
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: clamp(1.12rem, 1.8vw, 1.35rem);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.genealogy-hero-stats {
+  margin: 35px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 0;
+  color: var(--muted);
+  font-size: 0.67rem;
+  letter-spacing: 0.04em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.genealogy-hero-stats span {
+  padding: 0 16px;
+  border-left: 1px solid var(--rule-light);
+}
+
+.genealogy-hero-stats span:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.genealogy-hero-stats strong {
+  margin-right: 0.25em;
+  color: var(--scarlet);
+  font-family: var(--serif);
+  font-size: 1.28rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.genealogy-hero-actions {
+  margin-top: 37px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+}
+
+.hero-lineage {
+  position: relative;
+  min-height: 590px;
+  opacity: 0;
+  animation: genealogy-visual-in 700ms ease 260ms forwards;
+}
+
+@keyframes genealogy-visual-in {
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-lineage-path {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.hero-path-base,
+.hero-path-trace {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.hero-path-base {
+  stroke: var(--rule-light);
+  stroke-width: 1.5;
+}
+
+.hero-path-trace {
+  stroke: var(--scarlet);
+  stroke-width: 2;
+  stroke-dasharray: 1100;
+  stroke-dashoffset: 1100;
+  animation: trace-hero-line 1750ms cubic-bezier(0.22, 0.7, 0.2, 1) 420ms forwards;
+}
+
+.hero-path-trace-alt {
+  animation-delay: 730ms;
+}
+
+@keyframes trace-hero-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.hero-lineage-name {
+  position: absolute;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.94);
+  font-family: var(--serif);
+  font-size: clamp(1.02rem, 1.55vw, 1.28rem);
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.hero-lineage-name::before {
+  position: absolute;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--scarlet);
+  border-radius: 50%;
+  background: var(--paper);
+  content: "";
+  transform: translateY(-50%);
+}
+
+.hero-lineage-name small {
+  margin-left: 0.36em;
+  color: var(--scarlet);
+  font-family: var(--sans);
+  font-size: 0.5em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.hero-lineage-copernicus {
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-lineage-copernicus::before,
+.hero-lineage-malebranche::before,
+.hero-lineage-poisson::before,
+.hero-lineage-shroff::before {
+  right: calc(100% + 6px);
+}
+
+.hero-lineage-malebranche {
+  top: 21%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-lineage-lagrange {
+  top: 49%;
+  left: 16%;
+}
+
+.hero-lineage-lagrange::before {
+  right: calc(100% + 4px);
+}
+
+.hero-lineage-laplace {
+  top: 49%;
+  right: 12%;
+}
+
+.hero-lineage-laplace::before {
+  left: calc(100% + 4px);
+}
+
+.hero-lineage-poisson {
+  top: 72%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-lineage-shroff {
+  bottom: 0;
+  left: 50%;
+  color: var(--scarlet);
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  transform: translateX(-50%);
+}
+
+.genealogy-section {
+  width: min(calc(100% - 72px), var(--genealogy-max));
+  margin: 0 auto;
+  padding: 112px 0;
+  display: grid;
+  grid-template-columns: minmax(190px, 240px) minmax(0, 1fr);
+  gap: clamp(45px, 7vw, 88px);
+}
+
+.genealogy-section + .genealogy-section {
+  border-top: 1px solid var(--rule);
+}
+
+.genealogy-section-heading {
+  position: sticky;
+  top: calc(var(--header-height) + 34px);
+  align-self: start;
+}
+
+.genealogy-section-heading h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.genealogy-section-heading > p:not(.eyebrow) {
+  margin: 23px 0 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.72;
+}
+
+.lineage-content,
+.legacy-content,
+.poster-preview {
+  min-width: 0;
+  max-width: 792px;
+}
+
+.lineage-list,
+.lineage-route ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lineage-list {
+  position: relative;
+}
+
+.lineage-list::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 28px;
+  width: 1px;
+  background: var(--rule);
+  content: "";
+}
+
+.lineage-item {
+  position: relative;
+  padding: 0 0 29px;
+}
+
+.lineage-item::before {
+  position: absolute;
+  z-index: 3;
+  top: 31px;
+  left: 24px;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  background: var(--paper);
+  content: "";
+  transition: border-color 300ms ease, background 300ms ease, transform 300ms ease;
+}
+
+.lineage-item::after {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 28px;
+  width: 1px;
+  background: var(--scarlet);
+  content: "";
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 720ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.lineage-item.is-traced::after {
+  transform: scaleY(1);
+}
+
+.lineage-item.is-traced::before {
+  border-color: var(--scarlet);
+  background: var(--scarlet);
+  transform: scale(1.08);
+}
+
+.lineage-node {
+  position: relative;
+  z-index: 4;
+  margin-left: 57px;
+  border-top: 1px solid var(--rule-light);
+  border-bottom: 1px solid transparent;
+  background: var(--paper);
+}
+
+.lineage-node summary,
+.person-entry summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.lineage-node summary::-webkit-details-marker,
+.person-entry summary::-webkit-details-marker {
+  display: none;
+}
+
+.lineage-node summary {
+  min-height: 70px;
+  padding: 16px 4px 17px 0;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 18px;
+  gap: 14px;
+  align-items: center;
+}
+
+.lineage-generation {
+  color: var(--scarlet);
+  font-family: var(--serif);
+  font-size: 0.88rem;
+  font-style: italic;
+}
+
+.lineage-person {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.lineage-person strong {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2vw, 1.38rem);
+  font-weight: 600;
+  line-height: 1.2;
+  transition: color 180ms ease;
+}
+
+.lineage-person > span {
+  color: var(--muted);
+  font-size: 0.71rem;
+  line-height: 1.5;
+}
+
+.lineage-node summary:hover .lineage-person strong,
+.person-entry summary:hover .person-summary strong {
+  color: var(--scarlet);
+}
+
+.disclosure-mark {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+.disclosure-mark::before,
+.disclosure-mark::after {
+  position: absolute;
+  top: 6px;
+  left: 1px;
+  width: 12px;
+  height: 1px;
+  background: var(--muted);
+  content: "";
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.disclosure-mark::after {
+  transform: rotate(90deg);
+}
+
+details[open] > summary .disclosure-mark::after {
+  transform: rotate(0deg);
+}
+
+details[open] > summary .disclosure-mark::before,
+details[open] > summary .disclosure-mark::after {
+  background: var(--scarlet);
+}
+
+.lineage-detail {
+  padding: 0 36px 21px 54px;
+  color: var(--ink-soft);
+  font-size: 0.79rem;
+  line-height: 1.7;
+}
+
+.lineage-detail p {
+  margin: 0;
+}
+
+.lineage-detail p + p {
+  margin-top: 7px;
+}
+
+.lineage-node[open] {
+  border-bottom-color: var(--rule-light);
+}
+
+.lineage-branch {
+  position: relative;
+  margin: 2px 0 34px;
+  padding: 70px 0 70px 72px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.lineage-branch-connectors {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.lineage-branch-connectors path {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 0.2;
+  vector-effect: non-scaling-stroke;
+  transition: stroke 500ms ease, stroke-width 500ms ease;
+}
+
+.lineage-branch.is-traced .lineage-branch-connectors path {
+  stroke: var(--scarlet);
+  stroke-width: 1.4;
+}
+
+.lineage-route {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  background: var(--paper);
+}
+
+.lineage-route-label {
+  margin: 0 0 13px;
+  color: var(--scarlet);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.lineage-node-branch {
+  margin-left: 0;
+}
+
+.lineage-node-branch summary {
+  min-height: 98px;
+  padding-left: 0;
+  grid-template-columns: 32px minmax(0, 1fr) 16px;
+  gap: 9px;
+  align-items: start;
+}
+
+.lineage-node-branch .lineage-person strong {
+  font-size: 1.04rem;
+}
+
+.lineage-node-branch .lineage-detail {
+  padding: 0 25px 18px 41px;
+  font-size: 0.73rem;
+}
+
+.lineage-destination .lineage-node {
+  border-top-color: var(--scarlet);
+  border-bottom-color: var(--scarlet);
+}
+
+.lineage-destination .lineage-person strong {
+  color: var(--scarlet);
+}
+
+.legacy-decade {
+  border-top: 1px solid var(--rule);
+}
+
+.legacy-decade + .legacy-decade {
+  margin-top: 58px;
+}
+
+.legacy-decade-heading {
+  padding: 18px 0 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: baseline;
+}
+
+.legacy-decade-heading h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.52rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.legacy-decade-heading span {
+  color: var(--muted-light);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 34px;
+}
+
+.person-entry {
+  min-width: 0;
+  border-top: 1px solid var(--rule-light);
+}
+
+.person-entry summary {
+  min-height: 91px;
+  padding: 20px 0;
+  display: grid;
+  grid-template-columns: 31px minmax(0, 1fr) 16px;
+  gap: 12px;
+  align-items: start;
+}
+
+.person-index {
+  padding-top: 3px;
+  color: var(--scarlet);
+  font-family: var(--serif);
+  font-size: 0.72rem;
+  font-style: italic;
+}
+
+.person-summary {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+}
+
+.person-summary strong {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.25;
+  transition: color 180ms ease;
+}
+
+.person-summary > span {
+  color: var(--muted-light);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.person-detail {
+  padding: 0 20px 24px 43px;
+  color: var(--muted);
+  font-size: 0.73rem;
+  line-height: 1.63;
+}
+
+.person-detail p {
+  margin: 0;
+}
+
+.person-detail p + p {
+  margin-top: 10px;
+}
+
+.person-detail .person-thesis {
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.person-detail .person-status {
+  color: var(--scarlet);
+  font-size: 0.61rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.person-entry[open] {
+  border-top-color: var(--scarlet);
+}
+
+.person-entry-compact summary {
+  min-height: 78px;
+}
+
+.legacy-decade-current {
+  border-top-color: var(--scarlet);
+}
+
+.poster-section {
+  padding-bottom: 120px;
+}
+
+.poster-actions {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.poster-preview {
+  margin: 0;
+}
+
+.poster-preview a {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: #f5f3ed;
+}
+
+.poster-preview img {
+  width: 100%;
+  height: auto;
+  transition: transform 700ms cubic-bezier(0.2, 0.65, 0.25, 1), filter 300ms ease;
+}
+
+.poster-preview a:hover img {
+  filter: contrast(1.02);
+  transform: scale(1.012);
+}
+
+.poster-preview figcaption {
+  margin-top: 12px;
+}
+
+.genealogy-footer .footer-main {
+  align-items: center;
+}
+
+.footer-back-link {
+  color: var(--scarlet);
+  font-size: 0.73rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+@media (max-width: 920px) {
+  .genealogy-hero-inner,
+  .genealogy-section {
+    width: min(calc(100% - 48px), var(--genealogy-max));
+  }
+
+  .genealogy-hero-inner {
+    min-height: auto;
+    padding: 74px 0 82px;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+    gap: 42px;
+  }
+
+  .genealogy-hero h1 {
+    font-size: clamp(2.85rem, 7vw, 4.2rem);
+  }
+
+  .hero-lineage {
+    min-height: 520px;
+  }
+
+  .genealogy-section {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .genealogy-section-heading {
+    position: static;
+    max-width: 650px;
+  }
+
+  .lineage-content,
+  .legacy-content,
+  .poster-preview {
+    max-width: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .genealogy-hero-inner,
+  .genealogy-section {
+    width: min(calc(100% - 36px), var(--genealogy-max));
+  }
+
+  .genealogy-hero-inner {
+    padding: 61px 0 55px;
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .genealogy-hero h1 {
+    max-width: 520px;
+    font-size: clamp(2.55rem, 12.5vw, 3.75rem);
+    line-height: 1.01;
+  }
+
+  .genealogy-hero-intro {
+    margin-top: 22px;
+    font-size: 1.08rem;
+  }
+
+  .genealogy-hero-stats {
+    margin-top: 29px;
+    display: grid;
+    gap: 7px;
+  }
+
+  .genealogy-hero-stats span {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .genealogy-hero-actions {
+    margin-top: 31px;
+  }
+
+  .genealogy-hero-actions .button {
+    width: 100%;
+  }
+
+  .hero-lineage {
+    min-height: 390px;
+  }
+
+  .hero-lineage-name {
+    font-size: 0.96rem;
+  }
+
+  .hero-lineage-lagrange {
+    left: 6%;
+  }
+
+  .hero-lineage-laplace {
+    right: 4%;
+  }
+
+  .hero-lineage-shroff {
+    font-size: 1.35rem;
+  }
+
+  .genealogy-section {
+    padding: 76px 0;
+    gap: 37px;
+  }
+
+  .genealogy-section-heading > p:not(.eyebrow) {
+    margin-top: 18px;
+  }
+
+  .lineage-list::before,
+  .lineage-item::after {
+    left: 17px;
+  }
+
+  .lineage-item::before {
+    left: 13px;
+  }
+
+  .lineage-node {
+    margin-left: 37px;
+  }
+
+  .lineage-node summary {
+    grid-template-columns: 30px minmax(0, 1fr) 16px;
+    gap: 9px;
+  }
+
+  .lineage-detail {
+    padding: 0 22px 19px 39px;
+  }
+
+  .lineage-branch {
+    margin-left: 17px;
+    padding: 36px 0 36px 20px;
+    grid-template-columns: 1fr;
+    gap: 42px;
+    border-left: 1px solid var(--scarlet);
+  }
+
+  .lineage-branch-connectors {
+    display: none;
+  }
+
+  .lineage-route {
+    padding-left: 15px;
+    border-left: 1px solid var(--rule-light);
+  }
+
+  .lineage-node-branch summary {
+    min-height: 86px;
+  }
+
+  .people-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .legacy-decade + .legacy-decade {
+    margin-top: 45px;
+  }
+
+  .poster-section {
+    padding-bottom: 82px;
+  }
+
+  .poster-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .poster-actions .button {
+    min-height: 48px;
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .genealogy-footer .footer-main {
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .genealogy-hero-copy > *,
+  .hero-lineage {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-path-trace {
+    stroke-dashoffset: 0;
+  }
+
+  .lineage-item::after {
+    transform: scaleY(1);
+  }
+}
+
+@media print {
+  .genealogy-hero-inner {
+    min-height: auto;
+  }
+
+  .hero-lineage,
+  .genealogy-hero-actions,
+  .poster-actions {
+    display: none;
+  }
+
+  .genealogy-section {
+    padding: 44px 0;
+  }
+
+  .genealogy-section-heading {
+    position: static;
+  }
+}
