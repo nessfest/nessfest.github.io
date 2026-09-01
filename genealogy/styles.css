@@ -610,6 +610,46 @@ details[open] > summary .disclosure-mark::after {
   column-gap: 34px;
 }
 
+.current-students-grid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.current-student-entry {
+  min-width: 0;
+  min-height: 78px;
+  padding: 20px 0;
+  display: grid;
+  gap: 5px;
+  align-content: start;
+  border-top: 1px solid var(--rule-light);
+}
+
+.current-student-entry strong {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.current-student-entry span {
+  color: var(--muted-light);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+#doctoral-students {
+  padding-bottom: 72px;
+}
+
+#postdoctoral-scholars {
+  padding-top: 72px;
+}
+
 .person-entry {
   min-width: 0;
   border-top: 1px solid var(--rule-light);
@@ -904,6 +944,14 @@ details[open] > summary .disclosure-mark::after {
 
   .legacy-decade + .legacy-decade {
     margin-top: 45px;
+  }
+
+  #doctoral-students {
+    padding-bottom: 56px;
+  }
+
+  #postdoctoral-scholars {
+    padding-top: 56px;
   }
 
   .poster-section {
