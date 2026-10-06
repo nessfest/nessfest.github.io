@@ -693,16 +693,10 @@ figcaption {
 .program-schedule li {
   padding: 16px 0 17px;
   display: grid;
-  grid-template-columns: minmax(148px, 0.45fr) minmax(0, 1fr) minmax(48px, auto);
-  gap: 30px;
+  grid-template-columns: minmax(156px, 0.8fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
   align-items: baseline;
   border-bottom: 1px solid var(--rule-light);
-  transition: color 180ms ease, padding-left 180ms ease;
-}
-
-.program-schedule li:hover {
-  padding-left: 6px;
-  color: var(--scarlet-dark);
 }
 
 .program-schedule time {
@@ -726,7 +720,7 @@ figcaption {
   font-size: 0.95rem;
   font-weight: 400;
   line-height: 1.5;
-  text-align: right;
+  text-align: left;
 }
 
 .program-schedule .program-break p {
@@ -1361,7 +1355,7 @@ figcaption {
   }
 
   .program-schedule li {
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 4px 16px;
     align-items: start;
   }
@@ -1382,10 +1376,6 @@ figcaption {
 
   .speaker-list {
     grid-template-columns: 1fr;
-  }
-
-  .program-schedule li:hover {
-    padding-left: 0;
   }
 
   .campus-figure {
