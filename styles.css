@@ -728,6 +728,25 @@ figcaption {
   font-weight: 400;
 }
 
+.speaker-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 1px;
+}
+
+.speaker-link:hover,
+.speaker-link:focus-visible {
+  color: var(--scarlet);
+  text-decoration-color: currentColor;
+}
+
+.speaker-link:focus-visible {
+  outline: 2px solid var(--scarlet);
+  outline-offset: 4px;
+}
+
 .speaker-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1001,21 +1020,10 @@ figcaption {
 }
 
 .organizer-group a {
-  display: inline-flex;
-  gap: 9px;
-  align-items: baseline;
   font-family: var(--serif);
   font-size: 1.22rem;
   font-weight: 600;
   line-height: 1.35;
-  text-decoration: none;
-}
-
-.organizer-group a span {
-  color: var(--scarlet);
-  font-family: var(--sans);
-  font-size: 0.68rem;
-  font-weight: 500;
 }
 
 .site-footer {
