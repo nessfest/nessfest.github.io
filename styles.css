@@ -715,11 +715,19 @@ figcaption {
   line-height: 1.35;
 }
 
-.program-speaker {
+.program-schedule p:has(+ .program-speaker) {
   color: var(--ink-soft);
+  font-family: inherit;
   font-size: 0.95rem;
   font-weight: 400;
   line-height: 1.5;
+}
+
+.program-speaker {
+  font-family: var(--serif);
+  font-size: 1.12rem;
+  font-weight: 600;
+  line-height: 1.35;
   text-align: left;
 }
 
