@@ -755,6 +755,16 @@ figcaption {
   outline-offset: 4px;
 }
 
+.speaker-affiliation {
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-soft);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
 .speaker-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
