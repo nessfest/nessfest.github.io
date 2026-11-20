@@ -693,7 +693,7 @@ figcaption {
 .program-schedule li {
   padding: 16px 0 17px;
   display: grid;
-  grid-template-columns: minmax(156px, 0.8fr) minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(140px, 0.75fr) minmax(0, 1.8fr) minmax(0, 1.1fr);
   gap: 24px;
   align-items: baseline;
   border-bottom: 1px solid var(--rule-light);
@@ -715,20 +715,59 @@ figcaption {
   line-height: 1.35;
 }
 
-.program-schedule p:has(+ .program-speaker) {
-  color: var(--ink-soft);
-  font-family: inherit;
-  font-size: 0.95rem;
-  font-weight: 400;
-  line-height: 1.5;
-}
-
 .program-speaker {
   font-family: var(--serif);
   font-size: 1.12rem;
   font-weight: 600;
   line-height: 1.35;
   text-align: left;
+}
+
+.program-schedule .program-talk {
+  font-size: 1.25rem;
+}
+
+.program-talk-link {
+  display: block;
+  width: fit-content;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.program-talk-title {
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.program-talk-link:hover .program-talk-title,
+.program-talk-link:focus-visible .program-talk-title {
+  color: var(--scarlet);
+  text-decoration-color: currentColor;
+}
+
+.program-talk-subtitle {
+  display: block;
+  margin-top: 3px;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.program-talk-format,
+.program-schedule .program-slides-pending {
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.program-talk-format {
+  display: block;
+  margin-top: 6px;
+  line-height: 1.3;
 }
 
 .program-schedule .program-break p {
@@ -1419,23 +1458,13 @@ figcaption {
   }
 
   .program-schedule li {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 4px 16px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
     align-items: start;
   }
 
-  .program-schedule time {
-    grid-column: 1 / -1;
-  }
-
-  .program-schedule p {
-    grid-column: 1;
-  }
-
   .program-speaker {
-    grid-row: 2;
-    grid-column: 2;
-    align-self: baseline;
+    margin-top: 3px;
   }
 
   .speaker-list {
